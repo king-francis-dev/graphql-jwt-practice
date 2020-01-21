@@ -1,0 +1,32 @@
+type Query {
+    bookById(id: ID): Book
+    books: [Book]
+    authors: [Author]
+    users: [DAOUser]
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type Author {
+    lastName: String
+    id: ID
+    firstName: String
+    books:[Book]
+}
+
+type DAOUser {
+    id: Int!
+    username: String
+    password: String
+}
+
+type Mutation {
+    createUser(username: String!, password: String!):DAOUser
+}
+
+
